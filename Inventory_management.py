@@ -1,11 +1,5 @@
-# inventory_management.py
-
 # Dictionary to store product quantities
-inventory = {
-    'apple': 50,
-    'banana': 30,
-    'cherry': 20
-}
+inventory = {}
 
 # Function to add products to the inventory
 def add_product(product, quantity):
@@ -14,7 +8,8 @@ def add_product(product, quantity):
     else:
         inventory[product] = quantity
 
-add_product("apple", 10)
+add_product("apple",1)
+print(inventory)
 
 # Function to sell products (decrease product quantity)
 def sell_product(product, quantity):
@@ -23,11 +18,16 @@ def sell_product(product, quantity):
     else:
         return "Insufficient stock"
 
-sell_product("banana", 30)
+sell_product("apple",1)
+print(inventory)
+print(sell_product("apple",1))
+add_product("apple",1)
 
 # Function to check if a product is available
 def check_availability(product):
     return inventory.get(product, 0)
+
+print(check_availability("apple"))
 
 # Function to get total inventory value (simple example assuming fixed price for each product)
 def total_inventory_value():
@@ -41,4 +41,4 @@ def total_inventory_value():
         total_value += quantity * prices.get(product, 0)
     return total_value
 
-total_inventory_value()
+print(total_inventory_value())
