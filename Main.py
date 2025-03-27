@@ -12,18 +12,19 @@ def unit_test():
 
     
     # Test selling products
-    #result = sell_product('apple', 10)
-    # assert result is None, f"Expected None but got {result}"  # No error should occur
-    # assert check_availability('apple') == 40, "Apple stock should be 40 after selling 10."
+    result = sell_product('apple', 10)
+    assert result is None, f"Expected None but got {result}"  # No error should occur
+    assert check_availability('apple') == 40, "Apple stock should be 40 after selling 10."
+    print(result)
 
     # Test insufficient stock. Trying to sell more than available - if you sell more than 20, this SHOULD NOT present an error.
-    #result = sell_product('banana', 200)  # Selling 200 should not raise an error - if it does, the sell_product function needs fixing.
-    # assert result == "Insufficient stock", f"Expected 'Insufficient stock' but got {result}."
-
+    result = sell_product('banana', 200)  # Selling 200 should not raise an error - if it does, the sell_product function needs fixing.
+    assert result == "Insufficient stock", f"Expected 'Insufficient stock' but got {result}."
+    print(result)
     # TODO: Test selling a non-existent product (e.g., 'grape') and check behavior.
     result = sell_product("grape", 100)
     # For example, it should return "Insufficient stock" or similar.
-    return result
+    print(result)
 # -------------------------------------------
 # Integration Testing
 # -------------------------------------------
@@ -49,6 +50,7 @@ def integration_test():
     print(f"Grape srock after sale: {grape_stock}")
 
     # TODO: Test checking availability of a non-existent product (e.g., 'mango', should return 0).
+    print(grape_stock)
     # TODO: Test total inventory value after sales
     print(f"Total inventory value: {total_inventory_value()} (Expected: 70)")
 
